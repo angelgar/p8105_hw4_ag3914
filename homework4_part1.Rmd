@@ -41,20 +41,20 @@ In this part, we are going to generate plots.
 
 ##  Distribution of post-natal days for each developmental landmark
 
-ggplot(pups_data, aes(x = outcome, y = post_natal_days)) + 
-  geom_violin(aes(fill = outcome)) +
+ggplot(pups_data, aes(x = outcome, y = post_natal_days)) + # Start ggplot object
+  geom_violin(aes(fill = outcome)) + # Generate violin plot
   labs(title = "Distribution of Post-Natal Days by Outcome",
        x = "Outcome",
-       y = "Number of Post-Natal Days")
+       y = "Number of Post-Natal Days") # Edit Labels
 
 
 library(ggridges)
 
-ggplot(pups_data, aes(x = post_natal_days, y = outcome)) + 
-  geom_density_ridges(scale = 0.85) +
+ggplot(pups_data, aes(x = post_natal_days, y = outcome)) + # Start ggplot object
+  geom_density_ridges(scale = 0.85) + # Generate ridge plot
   labs(title = "Distribution of Post-Natal Days by Outcome",
        x = "Number of Post-Natal Days",
-       y = "Outcome")
+       y = "Outcome") # Edit labels
 
 ```
 
