@@ -2,7 +2,9 @@
 title: "Homework 4 Part 1"
 author: "Angel Garcia de la Garza and Soohyun Kim"
 date: "10/24/2017"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -23,13 +25,15 @@ In this part of the code, we are going to tidy up our dataset.
 
 ## Gather the pups data to long format
 
-pups_data <- read_csv("./FAS_pups.csv") %>% ## Load the data
-              clean_names() %>% ## Clean Names
-              mutate(id = 1:313) %>% ## Create Pup ID
+pups_data <- read_csv("./FAS_pups.csv") %>% # Load the data
+              clean_names() %>% # Clean Names
+              mutate(id = 1:313) %>% # Create Pup ID
               gather(key = outcome, 
-                     value = post_natal_days, pd_ears:pd_walk) %>% ## Gather to long format
-              separate(outcome, into = c("remove", "outcome"), sep = "_") %>% ## Clean names by separate
-              select(-remove) ## Remove dummy variable
+                     value = post_natal_days, pd_ears:pd_walk) %>% 
+              # Gather to long format
+              separate(outcome, into = c("remove", "outcome"), sep = "_") %>% 
+              # Clean names by separate
+              select(-remove) # Remove dummy variable
               
 ```
 
