@@ -31,4 +31,27 @@ pups_data <- read_csv("./FAS_pups.csv") %>% ## Load the data
               
 ```
 
+## Part 2
 
+```{r}
+
+##  Distribution of post-natal days for each developmental landmark
+
+ggplot(pups_data, aes(x = outcome, y = post_natal_days)) + 
+  geom_violin(aes(fill = outcome)) +
+  labs(title = "Distribution of Post-Natal Days by Outcome",
+       x = "Outcome",
+       y = "Number of Post-Natal Days")
+
+
+library(ggridges)
+
+ggplot(pups_data, aes(x = post_natal_days, y = outcome)) + 
+  geom_density_ridges(scale = 0.85) +
+  labs(title = "Distribution of Post-Natal Days by Outcome",
+       x = "Number of Post-Natal Days",
+       y = "Outcome")
+
+```
+
+First, we observe that the distribution of post-natal days for each outcome looks very bumpy. Outcome, "pd_ears" ranges from about 2 to 5 post-natal days, "pd_eyes" from about 11 to 15, "pd_pivot" from about 4 to 11 and "pd_walk" from about 7 to 13. It is clear from the plots that the number of post-natal days differs by outcome. 
